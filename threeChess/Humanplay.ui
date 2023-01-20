@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Humanplay</class>
+ <widget class="QMainWindow" name="Humanplay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1000</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 控制滚动条*/
+QScrollBar:vertical{
+	background-color:transparent;
+	width:10px;
+	height:200px;
+	padding-top:10px;
+	padding-bottom:10px;
+}  
+QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical{
+	background-color:rgb(194,137,104);
+}        
+QScrollBar::handle:vertical{
+	background:rgba(124,64,44,0.8);
+}   
+QScrollBar::handle:vertical:hover,QScrollBar::handle:vertical:pressed{
+	background:rgba(104,54,34,0.8);
+    border:0px solid rgb(100,100,100);
+}
+
+QScrollBar::sub-line:vertical{
+	height:20px;
+	width:20px;
+	border:0px solid rgb(128,217,197);
+	background:rgba(159,100,74,1) url(:/image/icon/toolIcon/icon_up.png);
+}
+QScrollBar::add-line:vertical{
+	height:20px;
+	width:20px;
+	border:0px solid rgb(128,217,197);
+	background:rgba(159,100,74,1) url(:/image/icon/toolIcon/icon_down.png);
+}
+
+
+QScrollBar:horizontal{
+	background-color:transparent;
+	width:140px;
+	height:0px;
+	padding-left:12px;
+	padding-right:12px;
+}  
+QScrollBar::add-page:horizontal,QScrollBar::sub-page:horizontal{
+	background-color:transparent;
+}        
+QScrollBar::handle:horizontal{
+	background:rgba(41,43,45,0.8);
+	border:0px solid rgba(21,23,25,1);
+}    
+QScrollBar::handle:horizontal:hover,QScrollBar::handle:horizontal:pressed{					  		      
+    background:rgba(31,33,35,1);
+	border:0px solid rgb(255,255,255);
+}
+
+/* 控制按钮图片*/
+
+QToolButton#btnReturn{
+	border-image:url(:/resources/image/btnReturn.png);
+}
+QToolButton#btnReturn:hover{
+	border-image:url(:/resources/image/btnReturn1.png);
+}
+
+
+QToolButton#btnBegin{
+	border-image:url(:/resources/image/btnBegin.png);
+}
+QToolButton#btnBegin:hover{
+	border-image:url(:/resources/image/btnBegin1.png);
+}
+
+QToolButton#btnPause{
+	border-image:url(:/resources/image/btnPause.png);
+}
+QToolButton#btnPause:hover{
+	border-image:url(:/resources/image/btnPause1.png);
+}
+
+QToolButton#btnExchange{
+	border-image:url(:/resources/image/btnExchange.png);
+}
+QToolButton#btnExchange:hover{
+	border-image:url(:/resources/image/btnExchange1.png);
+}
+
+QToolButton#btnBack{
+	border-image:url(:/resources/image/btnBack.png);
+}
+QToolButton#btnBack:hover{
+	border-image:url(:/resources/image/btnBack1.png);
+}
+
+QToolButton#btnLose{
+	border-image:url(:/resources/image/btnLose.png);
+}
+QToolButton#btnLose:hover{
+	border-image:url(:/resources/image/btnLose1.png);
+}
+
+QToolButton#btnSave{
+	border-image:url(:/resources/image/btnSave.png);
+}
+QToolButton#btnSave:hover{
+	border-image:url(:/resources/image/btnSave1.png);
+}
+
+QToolButton#btnAgain{
+	border-image:url(:/resources/image/btnAgain.png);
+}
+QToolButton#btnAgain:hover{
+	border-image:url(:/resources/image/btnAgain1.png);
+}
+
+/* 控制棋谱*/
+
+QLabel#chessbookLabel{
+	image:url(:/resources/image/chessbookLabel.png);
+}
+
+QWidget#chessbookWidget{
+	border-radius:4px;
+	border:4px solid rgb(219,149,96);
+}
+
+#chessbookEdit{
+	border:0px;
+	background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(144, 80, 45, 255), stop:1 rgba(173, 104, 62, 255));
+	selection-background-color:rgb(189,131,88);
+}
+
+
+
+QLabel#boardInfoLabel{
+	image:url(:/resources/image/boardInfo.png);
+}
+
+QWidget#boardInfoWidget{
+	border-radius:4px;
+	border:4px solid rgb(219,149,96);
+}
+
+QTextEdit#boardInfoEdit{
+	border:0px;
+	background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(144, 80, 45, 255), stop:1 rgba(173, 104, 62, 255));
+}
+
+
+/*设置对局*/
+QLabel#playerLabel1{
+	image:url(:/resources/image/player1.png);
+}
+QLabel#blackLabel{
+	image:url(:/resources/image/black.png);
+}
+QLabel#playerLabel2{
+	image:url(:/resources/image/player2.png);
+}
+QLabel#whiteLabel{
+	image:url(:/resources/image/white.png);
+}
+QLabel#timeLimitLabel{
+	image:url(:/resources/image/timeLimit.png);
+}
+#timeBox{
+	border-radius:4px;
+	border:1px solid rgb(0,0,0);
+	font-size:14px;
+	background-color:qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(164, 95, 52, 255), stop:1 rgba(203, 134, 92, 255));
+}
+QComboBox::drop-down {
+     width :  23px ;
+}
+#playerTimer1,#playerTimer2{
+	border-radius:4px;
+	border:2px solid rgb(0,0,0);
+	color:rgb(0,0,0);
+}
+#timeLabel2,#timeLabel1{
+	font-family:楷体;
+	font-size:18px;
+	font-weight:black;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="controlView" native="true">
+    <property name="geometry">
+     <rect>
+      <x>660</x>
+      <y>90</y>
+      <width>311</width>
+      <height>501</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="controlWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>291</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <widget class="QToolButton" name="btnBegin">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnPause">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>20</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnExchange">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>70</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnBack">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>70</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnLose">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>120</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QToolButton" name="btnSave">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>120</y>
+        <width>90</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="chessbookWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>281</width>
+       <height>241</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="chessbookLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>261</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QListWidget" name="chessbookEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>256</width>
+        <height>192</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="infoView" native="true">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>120</y>
+      <width>191</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="boardInfoWidget" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>270</y>
+       <width>171</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="boardInfoLabel">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QTextEdit" name="boardInfoEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>151</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Adobe 宋体 Std L</family>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Adobe 宋体 Std L'; font-size:16pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widgetPlayer1" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>171</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="playerLabel1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="blackLabel">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>10</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="playerTimer1">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>50</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="timeLabel1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>54</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>剩余时间</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="widgetPlayer2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>120</y>
+       <width>171</width>
+       <height>81</height>
+      </rect>
+     </property>
+     <widget class="QLabel" name="playerLabel2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>81</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="whiteLabel">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>10</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLCDNumber" name="playerTimer2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>40</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="timeLabel2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>54</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>剩余时间</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QComboBox" name="timeBox">
+     <property name="geometry">
+      <rect>
+       <x>88</x>
+       <y>210</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="timeLimitLabel">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>210</y>
+       <width>61</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QToolButton" name="btnReturn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>160</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+   </widget>
+   <widget class="BoardView" name="boardView" native="true">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>120</y>
+      <width>420</width>
+      <height>420</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>BoardView</class>
+   <extends>QWidget</extends>
+   <header location="global">BoardView.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
